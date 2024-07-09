@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clustering Semua Spesifikasi Rumah</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Clustering Semua Spesifikasi Rumah</h1>
+        <form action="/cluster" method="post">
+            <div>
+                <label for="luas_bangunan">Luas Bangunan</label>
+                <input type="text" id="luas_bangunan" name="luas_bangunan">
+            </div>
+            <div>
+                <label for="luas_tanah">Luas Tanah</label>
+                <input type="text" id="luas_tanah" name="luas_tanah">
+            </div>
+            <div>
+                <label for="kamar_tidur">Kamar Tidur</label>
+                <input type="text" id="kamar_tidur" name="kamar_tidur">
+            </div>
+            <div>
+                <label for="kamar_mandi">Kamar Mandi</label>
+                <input type="text" id="kamar_mandi" name="kamar_mandi">
+            </div>
+            <div>
+                <label for="garasi">Garasi</label>
+                <input type="text" id="garasi" name="garasi">
+            </div>
+            <button type="submit">Cluster</button>
+        </form>
+        <div>
+            <h2>Hasil</h2>
+            <p>{{ result }}</p>
+        </div>
+    </div>
+</body>
+</html>
