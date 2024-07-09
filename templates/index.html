@@ -9,35 +9,36 @@
 <body>
     <div class="container">
         <h1>Clustering Semua Spesifikasi Rumah</h1>
-        <form action="/cluster" method="post">
-            <div>
+        <form action="/cluster" method="post" class="form-container">
+            <div class="form-group">
                 <label for="luas_bangunan">Luas Bangunan</label>
                 <input type="text" id="luas_bangunan" name="luas_bangunan">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="luas_tanah">Luas Tanah</label>
                 <input type="text" id="luas_tanah" name="luas_tanah">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="kamar_tidur">Kamar Tidur</label>
                 <input type="text" id="kamar_tidur" name="kamar_tidur">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="kamar_mandi">Kamar Mandi</label>
                 <input type="text" id="kamar_mandi" name="kamar_mandi">
             </div>
-            <div>
+            <div class="form-group">
                 <label for="garasi">Garasi</label>
                 <input type="text" id="garasi" name="garasi">
             </div>
-            <div>
-                <button type="submit">Cluster</button>
-            </div>
+            <button type="submit">Cluster</button>
         </form>
-        <div>
+        <div class="result">
             <h2>Hasil</h2>
             <p>{{ result }}</p>
         </div>
     </div>
+    <footer>
+        <p>Copyright Dhendy Mardiansyah</p>
+    </footer>
 </body>
 </html>
