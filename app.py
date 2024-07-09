@@ -5,7 +5,7 @@ import os
 
 app = Flask(__name__)
 
-# Load the trained model
+# Load the trained model (cluster centers)
 with open('fuzzy_cmeans_model.pkl', 'rb') as model_file:
     cntr = pickle.load(model_file)
 
@@ -27,14 +27,13 @@ def cluster():
     # Normalize the data (assuming normalization was used in training)
     data_normalized = (data - data.min()) / (data.max() - data.min())
 
-    # Predict the cluster for the input data
-    u = cntr[0]  # Ensure 'u' is an array suitable for the dot product
-    if len(u.shape) == 1:  # u is a vector
-        u_pred = np.dot(u, data_normalized.T).argmax(axis=0)
-    elif len(u.shape) == 2:  # u is a matrix
-        u_pred = np.dot(u, data_normalized.T).argmax(axis=0)[0]
+    # Calculate the distances from the data to each cluster center
+    distances = np.linalg.norm(data_normalized - cntr, axis=1)
+    
+    # Assign the cluster with the minimum distance
+    cluster_idx = np.argmin(distances)
 
-    return render_template('index.html', result=u_pred)
+    return render_template('index.html', result=cluster_idx)
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
