@@ -28,7 +28,7 @@ def cluster():
     data_normalized = (data - data.min()) / (data.max() - data.min())
 
     # Predict the cluster for the input data
-    u, _, _, _, _, _, _ = cntr
+    u = cntr[0]  # Adjust this line based on actual model structure
     u_pred = np.dot(u, data_normalized.T).argmax(axis=0)[0]
 
     return render_template('index.html', result=u_pred)
