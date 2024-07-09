@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url("{{ url_for('static', filename='bg.png') }}");
+    background-image: url("/static/bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
